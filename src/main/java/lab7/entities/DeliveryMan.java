@@ -1,13 +1,25 @@
-package lab1;
+package lab7.entities;
 
-import java.util.List;
+import lab7.annotation.Column;
+import lab7.annotation.Entity;
+import lab7.annotation.Id;
 
+@Entity
 public class DeliveryMan {
+    @Id
+    private Long id;
+    @Column
+    private String name;
+    @Column
+    private String data;
 
-    String name;
-    String data;
+    public Long getId() {
+        return id;
+    }
 
-
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;

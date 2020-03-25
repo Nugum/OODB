@@ -3,6 +3,8 @@ package lab2;
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
 import lab1.Client;
+import lab1.Delivery;
+import lab1.DeliveryMan;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -12,9 +14,9 @@ import java.nio.file.Files;
 import java.util.Arrays;
 import java.util.List;
 
-public class structureDB {
+public class StructureDB {
 
-    public static List<Client> loadPersonList() throws IOException, JsonSyntaxException {
+    public static List<DeliveryMan> loadPersonList() throws IOException, JsonSyntaxException {
         String cStr = "";
         File file = new File("clients.json");
 
@@ -26,22 +28,22 @@ public class structureDB {
 
         Gson gson = new Gson();
 
-        Client[] clst = gson.fromJson(cStr, Client[].class);
+        DeliveryMan[] clst = gson.fromJson(cStr, DeliveryMan[].class);
 
         return Arrays.asList(clst);
     }
 
-    public static void saveClientList(List<Client> clients) throws IOException {
+    public static void saveDelivery (Delivery delivery) throws IOException {
 
-        if (clients != null && clients.size() > 0) {
+        if (delivery != null ) {
             Gson gson = new Gson();
 
-            String clientsAsJson = gson.toJson(clients);
+            String deliveryAS = gson.toJson(delivery);
 
-            System.out.println(clientsAsJson);
+            System.out.println(deliveryAS);
 
-            try (OutputStream os = new FileOutputStream(new File("clients.json"))) {
-                os.write(clientsAsJson.getBytes("UTF-8"));
+            try (OutputStream os = new FileOutputStream(new File("delivery.json"))) {
+                os.write(deliveryAS.getBytes("UTF-8"));
                 os.flush();
             }
 

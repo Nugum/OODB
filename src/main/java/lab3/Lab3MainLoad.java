@@ -2,13 +2,14 @@ package lab3;
 
 
 import lab1.Product;
+import lab1.Stock;
 
 public class Lab3MainLoad {
     public static void main(String[] args) {
 
-        Product product = ServiceXML.loadProductFromXML();
+        Stock stock = ServiceXML.loadProductFromXML();
 
-        System.out.println(product);
+        System.out.println(stock);
     }
 
 

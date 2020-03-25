@@ -2,6 +2,7 @@ package lab3;
 
 
 import lab1.Product;
+import lab1.Stock;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -12,26 +13,26 @@ import java.io.File;
 public class ServiceXML {
 
 
-    public static void saveProductData(Product product) {
+    public static void saveProductData(Stock stock) {
 
         try {
-            JAXBContext context = JAXBContext.newInstance(Product.class);
+            JAXBContext context = JAXBContext.newInstance(Stock.class);
             Marshaller marshaller = context.createMarshaller();
             marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
-            marshaller.marshal(product, new File("product.xml"));
+            marshaller.marshal(stock, new File("stocks.xml"));
         } catch (JAXBException e) {
             e.printStackTrace();
         }
     }
 
 
-    public static Product loadProductFromXML() {
+    public static Stock loadProductFromXML() {
 
         try {
-            JAXBContext jaxbContext = JAXBContext.newInstance(Product.class);
+            JAXBContext jaxbContext = JAXBContext.newInstance(Stock.class);
             Unmarshaller un = jaxbContext.createUnmarshaller();
 
-            return (Product) un.unmarshal(new File("product.xml"));
+            return (Stock) un.unmarshal(new File("stocks.xml"));
         } catch (JAXBException e) {
             e.printStackTrace();
         }

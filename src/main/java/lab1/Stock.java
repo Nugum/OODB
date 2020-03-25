@@ -2,10 +2,11 @@ package lab1;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
-
+@XmlRootElement(name = "Stock")
 public class Stock {
     String Address;
     String phoneNumber;

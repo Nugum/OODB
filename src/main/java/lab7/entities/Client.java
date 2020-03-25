@@ -1,10 +1,21 @@
-package lab1;
+package lab7.entities;
 
+import lab7.annotation.Column;
+import lab7.annotation.Entity;
+import lab7.annotation.Id;
+
+@Entity
 public class Client {
-    String firstName;
-    String lastName;
-    String phoneNumber;
-    String adress;
+    @Id
+    private Long id;
+    @Column
+    private String firstName;
+    @Column
+    private String lastName;
+    @Column
+    private String phoneNumber;
+    @Column
+    private String adress;
 
     public String getFirstName() {
         return firstName;
@@ -46,6 +57,14 @@ public class Client {
         this.phoneNumber = phoneNumber;
         this.adress = adress;
 
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     @Override
